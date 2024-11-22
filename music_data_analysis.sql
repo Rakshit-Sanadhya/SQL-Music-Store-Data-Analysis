@@ -102,7 +102,8 @@ WITH best_selling_artist as (
 	order by 3 desc
 	limit 2
 )
-SELECT c.customer_id, c.first_name, c.last_name, bsa.artist_name, SUM(il.unit_price*il.quantity) as amount_spent
+SELECT c.customer_id, c.first_name, c.last_name, bsa.artist_name, 
+	SUM(il.unit_price*il.quantity) as amount_spent
 from invoice i
 join customer c on i.customer_id = c.customer_id
 join invoice_line il on il.invoice_id = i.invoice_id
